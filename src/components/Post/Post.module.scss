@@ -1,6 +1,7 @@
 .title {
   font-size: rem(24px);
   margin-bottom: rem(16px);
+  line-height: 120%;
 }
 
 .body {
@@ -9,6 +10,7 @@
   line-height: 120%;
   max-width: 1200px;
   width: 100%;
+  white-space: break-spaces;
 }
 
 .post {
@@ -19,6 +21,10 @@
   padding: rem(18px);
   border: 1px solid $neutralGray;
   border-radius: 12px;
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+  }
 }
 
 .content {
