@@ -5,3 +5,24 @@
   padding: rem(16px);
   margin-top: rem($header-height-pc);
 }
+
+.createForm {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  padding: rem(16px);
+  border-radius: 12px;
+  border: 1px solid $neutralGray;
+}
+
+.title {
+  font-size: rem(24px);
+}
+
+.desc {
+  font-size: rem(20px);
+}
+
+.input {
+  padding: rem(10px);
+}

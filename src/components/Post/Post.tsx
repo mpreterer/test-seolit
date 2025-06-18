@@ -3,13 +3,15 @@ import type { IPost } from "../../types/posts";
 import cn from "classnames";
 import s from "./Post.module.scss";
 import { PostsContext } from "../../context/PostsContext";
+import { Button } from "../Button/Button";
 
 interface PostProps extends IPost {
   className?: string;
+  isEditMode?: boolean;
 }
 
-export const Post: FC<PostProps> = ({ body, userId, title, className, id }) => {
-  const [isEdit, setIsEdit] = useState(false);
+export const Post: FC<PostProps> = ({ body, userId, title, className, id, isEditMode }) => {
+  const [isEdit, setIsEdit] = useState(isEditMode);
   const [controlBody, setControlBody] = useState(body);
   const [controlTitle, setControlTitle] = useState(`${id} ${title}`);
   const { deletePost, editPost } = useContext(PostsContext);
@@ -65,16 +67,16 @@ export const Post: FC<PostProps> = ({ body, userId, title, className, id }) => {
           Удалить
         </button>
         {isEdit ? (
-          <button onClick={handleSave} className={s.button}>
+          <Button onClick={handleSave} className={s.button}>
             Сохранить
-          </button>
+          </Button>
         ) : (
-          <button
+          <Button
             onClick={handleClickEdit}
             className={cn(s.button, s.buttonChange)}
           >
             Изменить
-          </button>
+          </Button>
         )}
       </div>
     </section>

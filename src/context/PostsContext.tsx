@@ -6,12 +6,14 @@ interface PostsContextProps {
   posts: IPost[];
   deletePost: (id: number) => void;
   editPost: (updatedPost: IPost) => void;
+  addPost: (updatedPost: IPost) => void;
 }
 
 const defaultContext: PostsContextProps = {
   posts: POSTS,
   deletePost: () => {},
   editPost: () => {},
+  addPost: () => {},
 };
 
 export const PostsContext = createContext<PostsContextProps>(defaultContext);
@@ -33,11 +35,16 @@ export const PostsProvider: React.FC<PostsProviderProps> = ({ children }) => {
     );
   };
 
+  const addPost = (updatedPost: IPost) => {
+    setPosts((prev) => [...prev, updatedPost]);
+  };
+
   const contextValue = useMemo(
     () => ({
       posts,
       deletePost,
       editPost,
+      addPost,
     }),
     [posts]
   );
