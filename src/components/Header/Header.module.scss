@@ -1,0 +1,13 @@
+header {
+  height: $header-height-pc;
+  padding: 0 rem(20px);
+  font-size: rem(22px);
+  width: 100%;
+  background: $neuralGrayBackground;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  position: fixed;
+  top: 0;
+}

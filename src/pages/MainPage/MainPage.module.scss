@@ -1,0 +1,7 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  padding: rem(16px);
+  margin-top: rem($header-height-pc);
+}
